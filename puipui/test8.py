@@ -104,7 +104,7 @@ class Game(object):
 
 
 # learning_rate
-LEARNING_RATE = 1e-4
+LEARNING_RATE = 0.99
 # 更新梯度
 INITIAL_EPSILON = 1.0
 FINAL_EPSILON = 0.05
