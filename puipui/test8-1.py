@@ -50,7 +50,8 @@ class Game(object):
 
         self.ball_pos.x = SCREEN_SIZE[0]/2
         self.ball_pos.y = SCREEN_SIZE[1]/2
-        print("reset", self.ball_pos_x, self.ball_pos_y)
+
+        #print("reset", self.ball_pos_x, self.ball_pos_y)
 
 
     # action是MOVE_STAY、MOVE_LEFT、MOVE_RIGHT
@@ -97,11 +98,11 @@ class Game(object):
         pygame.draw.rect(screen, WHITE, self.ball_pos)
 
         if self.ball_pos.top <= 0 or self.ball_pos.bottom >= (SCREEN_SIZE[1] - BAR_SIZE[1] + 1):
-            self.ball_dir_y = self.ball_dir_y * -1
-        if self.ball_pos.left <= 0 or self.ball_pos.right >= (SCREEN_SIZE[0]):
-            self.ball_dir_x = self.ball_dir_x * -1
+            self.ball_dir_y = self.ball_dir_y  * random.choice((1,-1))
             self.ball_start()
-            print(self.ball_pos_x, self.ball_pos_y)
+        if self.ball_pos.left <= 0 or self.ball_pos.right >= (SCREEN_SIZE[0]):
+            self.ball_dir_x = self.ball_dir_x * -1 * random.choice((1,-1))
+            #print(self.ball_pos_x, self.ball_pos_y)
 game = Game()
 while True:
     for event in pygame.event.get():
@@ -114,4 +115,3 @@ while True:
     #game.ball_start()
     pygame.display.update()
     clock.tick(60)
-
